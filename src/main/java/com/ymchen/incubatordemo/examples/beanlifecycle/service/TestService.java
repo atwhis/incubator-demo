@@ -17,6 +17,16 @@ public class TestService implements BeanNameAware {
         return str;
     }
 
+    public String testEnhancer2(String name) {
+        log.info(">>> testService testEnhancer2 invoke");
+        return name;
+    }
+
+    public String testEnhancer(String name) {
+        log.info(">>> testService testEnhancer invoke");
+        return name;
+    }
+
     public void setStr(String str) {
         log.info(">>> testService set method invoke...");
         this.str = str;
