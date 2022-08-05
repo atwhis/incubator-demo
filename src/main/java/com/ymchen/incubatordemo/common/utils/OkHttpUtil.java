@@ -1,7 +1,5 @@
 package com.ymchen.incubatordemo.common.utils;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.ymchen.incubatordemo.common.model.OkHttpParam;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
@@ -42,7 +40,7 @@ public class OkHttpUtil {
                         .url(okHttpParam.getUrl() + "?" + okHttpParam.getParamStr()).build();
                 break;
             case POST:
-                RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), okHttpParam.getParamStr());
+                RequestBody requestBody = RequestBody.create(okHttpParam.getParamStr(), MediaType.parse("application/json"));
                 request = new Request.Builder().header("Cookie",
                         okHttpParam.getCookies())
                         .url(okHttpParam.getUrl())
