@@ -12,10 +12,10 @@ public class IncubatorDemoApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(IncubatorDemoApplication.class, args);
-        TestService testService = configurableApplicationContext.getBean("testService", TestService.class);
-        log.info(testService.testEnhancer("zhangSan"));
-        log.info(testService.testEnhancer2("zhangSan2"));
-        configurableApplicationContext.close();
+//        TestService testService = configurableApplicationContext.getBean("testService", TestService.class);
+//        log.info(testService.testEnhancer("zhangSan"));
+//        log.info(testService.testEnhancer2("zhangSan2"));
+//        configurableApplicationContext.close();
     }
 
 }

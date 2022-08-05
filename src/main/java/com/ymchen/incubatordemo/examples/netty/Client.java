@@ -16,6 +16,14 @@ public class Client {
             protected void initChannel(NioSocketChannel sc) {
                 sc.pipeline().addLast(new StringEncoder());
             }
+        }).connect(new InetSocketAddress(6379)).sync().channel().writeAndFlush("hello");
+
+
+        new Bootstrap().group(new NioEventLoopGroup()).channel(NioSocketChannel.class).handler(new ChannelInitializer<NioSocketChannel>() {
+            @Override
+            protected void initChannel(NioSocketChannel sc) {
+                sc.pipeline().addLast(new StringEncoder());
+            }
         }).connect(new InetSocketAddress(8080)).sync().channel().writeAndFlush("hello");
 
     }

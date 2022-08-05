@@ -25,6 +25,12 @@ public class Server {
                             public void channelRead(ChannelHandlerContext ctx, Object msg) {
                                 log.info("msg: {}", msg);
                             }
+
+                            @Override
+                            public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+                                log.info("channel in active");
+                                super.channelInactive(ctx);
+                            }
                         });
                     }
                 }).bind(8080).sync();
