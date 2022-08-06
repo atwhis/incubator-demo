@@ -1,7 +1,6 @@
 package com.ymchen.incubatordemo.examples.jdk8feature;
 
 import com.ymchen.incubatordemo.common.model.User;
-import com.ymchen.incubatordemo.common.utils.GsonUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
