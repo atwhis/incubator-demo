@@ -1,8 +1,10 @@
 package com.ymchen.incubatordemo.common.model;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class User {
 
     private Integer id;
@@ -10,4 +12,6 @@ public class User {
     private String userName;
 
     private String phone;
+
+    private Integer age;
 }
