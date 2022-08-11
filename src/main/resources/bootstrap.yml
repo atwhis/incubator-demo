@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /demo
+
+spring:
+  application:
+    name: incubator-demo
+
+  cloud:
+    nacos:
+      config:
+        server-addr: ${nacos.url}:8848
+        group: DEFAULT_GROUP
+        prefix: incubator-demo
+        file-extension: yaml
+        namespace: 3fc960f9-63b4-40eb-ae17-d37623d7846f
+  cache:
+    redis:
+      time-to-live:
+
+

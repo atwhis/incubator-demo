@@ -40,7 +40,7 @@ public class OkHttpUtil {
                         .url(okHttpParam.getUrl() + "?" + okHttpParam.getParamStr()).build();
                 break;
             case POST:
-                RequestBody requestBody = RequestBody.create(okHttpParam.getParamStr(), MediaType.parse("application/json"));
+                RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), okHttpParam.getParamStr());
                 request = new Request.Builder().header("Cookie",
                         okHttpParam.getCookies())
                         .url(okHttpParam.getUrl())
