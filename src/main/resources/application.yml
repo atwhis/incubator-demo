@@ -7,3 +7,8 @@ spring:
   application:
     name: demo
 
+oss:
+  qiniu:
+    enable: false
+  minio:
+    enable: true
