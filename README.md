@@ -1,10 +1,14 @@
 # Getting Started
 
-### Reference Documentation
 
-For further reference, please consider the following sections:
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.2/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.7.2/maven-plugin/reference/html/#build-image)
-
+#### docker env
+minio
+```dockerfile
+docker run -p 9000:9000 -p 9090:9090 -d --name minio \
+  -e "MINIO_ACCESS_KEY=minio123456" \
+  -e "MINIO_SECRET_KEY=minio123456" \
+  -v ~/docker/data/minio:/data \
+  -v ~/docker/conf/minio:/root/.minio \
+  minio/minio server /data --console-address ":9090" -address ":9000"
+```
