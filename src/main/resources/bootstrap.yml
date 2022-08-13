@@ -6,6 +6,9 @@ server:
 spring:
   application:
     name: incubator-demo
+  cache:
+    redis:
+      time-to-live: 12
 
   cloud:
     nacos:
@@ -15,8 +18,11 @@ spring:
         prefix: incubator-demo
         file-extension: yaml
         namespace: 3fc960f9-63b4-40eb-ae17-d37623d7846f
-  cache:
-    redis:
-      time-to-live:
 
+oss:
+  type: minio
+  accessKey: d9HmjeDUMpuIo5h6
+  secretKey: TXq61udjgfeVBWB1vaWsLvRb2ylaLdet
+  bucketName: public
+  url: http://127.0.0.1:9000
 
