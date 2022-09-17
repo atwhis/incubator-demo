@@ -1,8 +1,11 @@
 package com.ymchen.incubatordemo.controller;
 
 import com.ymchen.incubatordemo.common.service.OSSService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.task.TaskExecutor;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,17 +20,23 @@ import java.net.URLEncoder;
 @Slf4j
 @RestController
 @RequestMapping("oss")
+@RequiredArgsConstructor
 public class OSSController {
 
-    private OSSService ossService;
-
-    @Autowired
-    public void setOssService(OSSService ossService) {
-        this.ossService = ossService;
-    }
+    private final OSSService ossService;
+    private final TaskExecutor executor;
 
     @RequestMapping("hello")
     public String hello() {
+        return "hello";
+    }
+
+    @RequestMapping("testTask")
+    public String testTask() {
+        log.info("test task hello===========");
+        executor.execute(() -> {
+            log.info("task execute hello===========");
+        });
         return "hello";
     }
 
@@ -39,7 +48,7 @@ public class OSSController {
 
     @RequestMapping("download")
     public Object download(@RequestParam("fileName") String fileUrl, HttpServletResponse response) throws Exception {
-        String fileName = fileUrl.substring(fileUrl.lastIndexOf("/")+1);
+        String fileName = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
         InputStream inputStream = ossService.downloadFile(fileName);
         response.setCharacterEncoding("utf-8");
         response.setContentType("multipart/form-data");

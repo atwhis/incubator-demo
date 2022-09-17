@@ -1,7 +1,9 @@
-package com.ymchen.incubatordemo.common;
+package com.ymchen.incubatordemo.common.config;
 
+import com.ymchen.incubatordemo.common.IncubatorDemoConstant;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.ThreadPoolExecutor;
@@ -9,7 +11,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 @Configuration
 public class TaskExecutorConfig {
     @Bean(IncubatorDemoConstant.THREAD_POOL_NAME)
-    public ThreadPoolTaskExecutor asyncThreadPoolTaskExecutor() {
+    public TaskExecutor asyncThreadPoolTaskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(5);
         executor.setMaxPoolSize(20);
