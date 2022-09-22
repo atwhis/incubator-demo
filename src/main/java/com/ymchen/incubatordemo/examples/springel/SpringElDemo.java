@@ -7,7 +7,9 @@ import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SpringElDemo {
     public static void main(String[] args) {
@@ -34,5 +36,31 @@ public class SpringElDemo {
         List<Movie> movies = Arrays.asList(movie11, movie22);
         standardEvaluationContext.setVariable("movies", movies);
         System.out.println(expressionParser.parseExpression("{#movies[0].name},{#movies[0].score}", templateParserContext).getValue(standardEvaluationContext));
+
+
+        Obj obj = new Obj(movies.stream().toArray());
+        StandardEvaluationContext standardEvaluationContext1 = new StandardEvaluationContext(obj);
+        System.out.println("================================");
+        for (int i = 0; i < movies.size(); i++) {
+            Object value = expressionParser.parseExpression("args["+i+"]").getValue(standardEvaluationContext1);
+            System.out.println("value: " + value);
+
+        }
+    }
+
+    static class Obj{
+        Object[] args;
+
+        public Obj(Object[] args) {
+            this.args = args;
+        }
+
+        public Object[] getArgs() {
+            return args;
+        }
+
+        public void setArgs(Object[] args) {
+            this.args = args;
+        }
     }
 }
