@@ -1,0 +1,8 @@
+flow:
+  nodes:
+    node:
+      - id: discount
+        class: com.ymchen.incubatordemo.examples.liteflow.rules.DiscountRule
+  chain:
+    - name: fullChain
+      value: "THEN(init, fullReduce, coupon, freeInterest, freePost, discount)"

@@ -36,9 +36,15 @@
         <easyexcel.version>3.1.1</easyexcel.version>
         <com-alibaba-cloud.version>2.2.7.RELEASE</com-alibaba-cloud.version>
         <minio.version>8.4.3</minio.version>
+        <liteflow.version>2.9.2</liteflow.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.yomahub</groupId>
+            <artifactId>liteflow-spring-boot-starter</artifactId>
+            <version>${liteflow.version}</version>
+        </dependency>
         <dependency>
             <groupId>io.minio</groupId>
             <artifactId>minio</artifactId>

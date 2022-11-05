@@ -1,0 +1,4 @@
+flow:
+  chain:
+    - name: basicChain
+      value: "THEN(init, fullReduce, coupon)"
