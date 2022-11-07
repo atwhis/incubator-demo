@@ -10,6 +10,7 @@ spring:
     redis:
       time-to-live: 12
 
+
   cloud:
     nacos:
       config:
@@ -26,6 +27,24 @@ oss:
   bucketName: public
   url: http://127.0.0.1:9000
 
+#liteflow:
+#  rule-source: liteflow/*.yml
+
 liteflow:
-  rule-source: liteflow/*.yml
+  rule-source-ext-data-map:
+    serverAddr: ${nacos.url}:8848
+    dataId: liteflow-rule
+    group: DEFAULT_GROUP
+    namespace: 3fc960f9-63b4-40eb-ae17-d37623d7846f
+#    username: nacos
+#    password: nacos
+
+logging:
+  level:
+    root: info
+    com:
+      yomahub:
+        liteflow:
+          util:
+            LOGOPrinter: error
 

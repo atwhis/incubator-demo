@@ -46,6 +46,12 @@
             <version>${liteflow.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.yomahub</groupId>
+            <artifactId>liteflow-rule-nacos</artifactId>
+            <version>${liteflow.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>io.minio</groupId>
             <artifactId>minio</artifactId>
             <version>${minio.version}</version>

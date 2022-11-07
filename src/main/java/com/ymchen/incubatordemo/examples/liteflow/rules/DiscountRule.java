@@ -27,7 +27,7 @@ public class DiscountRule extends NodeComponent {
         PriceStepVo discount = PriceStepVo.builder().name(PriceTypeEnum.DISCOUNT.getDescribe()).preAmount(preAmount)
                 .currentAmount(currAmount).changeAmount(currAmount.subtract(preAmount)).build();
         priceContext.addPriceStep(discount);
-        log.info("计算折扣...{}");
+        log.info("计算折扣...");
     }
 
     @Override

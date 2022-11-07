@@ -1,4 +1,4 @@
 flow:
   chain:
-    - name: basicChain
+    - name: basicChain1234
       value: "THEN(init, fullReduce, coupon)"

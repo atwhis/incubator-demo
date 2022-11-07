@@ -6,3 +6,5 @@ flow:
   chain:
     - name: fullChain
       value: "THEN(init, fullReduce, coupon, freeInterest, freePost, discount)"
+    - name: basicChain
+      value: "THEN(init, fullReduce, coupon)"

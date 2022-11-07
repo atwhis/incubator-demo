@@ -25,7 +25,7 @@ public class FreeInterestRule extends NodeComponent {
         PriceStepVo freeInterest = PriceStepVo.builder().name(PriceTypeEnum.FREEINTEREST.getDescribe()).preAmount(preAmount)
                 .currentAmount(currAmount).changeAmount(currAmount.subtract(preAmount)).build();
         priceContext.addPriceStep(freeInterest);
-        log.info("计算免息...{}");
+        log.info("计算免息...");
     }
 
     @Override

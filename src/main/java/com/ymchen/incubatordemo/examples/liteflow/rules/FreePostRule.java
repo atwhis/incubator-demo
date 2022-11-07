@@ -25,7 +25,7 @@ public class FreePostRule extends NodeComponent {
         PriceStepVo freeInterest = PriceStepVo.builder().name(PriceTypeEnum.FREEPOST.getDescribe()).preAmount(preAmount)
                 .currentAmount(currAmount).changeAmount(currAmount.subtract(preAmount)).build();
         priceContext.addPriceStep(freeInterest);
-        log.info("计算包邮...{}");
+        log.info("计算包邮...");
     }
 
     @Override
